@@ -8,7 +8,7 @@ const Welcome = () => {
         <View style={styles.container}>
             <Text style={styles.text}>Find Donor</Text>
             <Text style={styles.text}>Or</Text>
-            <Text style={styles.text}>Be A Donor</Text>
+            <Text style={styles.text}>Be Donor</Text>
             <Button title="Register YourSelf"></Button>
             <StatusBar style="auto" />
         </View>
