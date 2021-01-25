@@ -1,15 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 const Welcome = () => {
 
-    let [num, setNum] = useState(0)
-
     return (
         <View style={styles.container}>
-            <Text style={{ color: "black", fontSize: 40 }}>Counter : {num}</Text>
-            <Button title="Click" onPress={() => setNum(++num)}></Button>
+            <Text style={styles.text}>Find Donor</Text>
+            <Text style={styles.text}>Or</Text>
+            <Text style={styles.text}>Be A Donor</Text>
+            <Button title="Register YourSelf"></Button>
             <StatusBar style="auto" />
         </View>
     );
@@ -21,6 +21,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         alignItems: 'center',
         justifyContent: 'center',
+    },
+    text: {
+        color: "black",
+        fontSize: 40,
+        padding: 20,
+        fontFamily: 'fantasy'
     },
 });
 
