@@ -24,11 +24,6 @@ const Register = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
     input: {
         height: 60,
         padding: 8,

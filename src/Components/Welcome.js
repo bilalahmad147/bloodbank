@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 const Welcome = ({ navigation }) => {
 
     return (
-        <View style={styles.container}>
+        <View>
             <Text style={styles.text}>Find Donor</Text>
             <Text style={styles.text}>Or</Text>
             <Text style={styles.text}>Be Donor</Text>
@@ -19,12 +19,6 @@ const Welcome = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
     text: {
         color: "black",
         fontSize: 40,

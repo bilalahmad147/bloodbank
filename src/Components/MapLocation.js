@@ -7,14 +7,6 @@ const MapLocation = () => {
 
     return (
         <View>
-            <TextInput
-                style={styles.input}
-                placeholder="Enter user name.."
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Enter password.."
-            />
             <TouchableOpacity style={styles.btn}>
                 <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
             </TouchableOpacity>
@@ -24,11 +16,6 @@ const MapLocation = () => {
 }
 
 const styles = StyleSheet.create({
-    input: {
-        height: 60,
-        padding: 8,
-        fontSize: 16,
-    },
     btn: {
         backgroundColor: "#c2bad8",
         padding: 9,
