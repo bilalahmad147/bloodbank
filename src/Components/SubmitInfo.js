@@ -3,10 +3,10 @@ import React from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Register = ({ navigation }) => {
+const SubmitInfo = () => {
 
     return (
-        <View style={styles.container}>
+        <View>
             <TextInput
                 style={styles.input}
                 placeholder="Enter user name.."
@@ -15,7 +15,7 @@ const Register = ({ navigation }) => {
                 style={styles.input}
                 placeholder="Enter password.."
             />
-            <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
+            <TouchableOpacity style={styles.btn}>
                 <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
             </TouchableOpacity>
             <StatusBar style="auto" />
@@ -24,11 +24,6 @@ const Register = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
     input: {
         height: 60,
         padding: 8,
@@ -46,4 +41,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Register;
+export default SubmitInfo;
