@@ -19,17 +19,26 @@ export default function App() {
 
   return (
     <NavigationContainer>
-        <StatusBar style="auto" />
-        <Stack.Navigator>
-          <Stack.Screen name="Welcome" component={Welcome} />
-          <Stack.Screen name="Register" component={Register} />
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="DonateBlood" component={DonateBlood} />
-          <Stack.Screen name="SubmitDetail" component={SubmitDetail} />
-          <Stack.Screen name="FindBlood" component={FindBlood} />
-          <Stack.Screen name="SubmitInfo" component={SubmitInfo} />
-          <Stack.Screen name="MapLocation" component={MapLocation} />
-        </Stack.Navigator>
+      <StatusBar style="auto" />
+      <Stack.Navigator screenOptions={{
+        headerStyle: {
+          backgroundColor: '#f4511e',
+          
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+        },
+      }}>
+        <Stack.Screen name="Welcome" component={Welcome} options={{ title: "Blood Bank App", headerTitleAlign: 'center' }} />
+        <Stack.Screen name="Register" component={Register} options={{ title: "Login Screen" }} />
+        <Stack.Screen name="Home" component={Home} options={{ title: "Home Screen" }} />
+        <Stack.Screen name="DonateBlood" component={DonateBlood} options={{ title: "Make Choice" }} />
+        <Stack.Screen name="SubmitDetail" component={SubmitDetail} options={{ title: "Submit detail" }} />
+        <Stack.Screen name="FindBlood" component={FindBlood} options={{ title: "Find Blood" }} />
+        <Stack.Screen name="SubmitInfo" component={SubmitInfo} options={{ title: "Submit Detail" }} />
+        <Stack.Screen name="MapLocation" component={MapLocation} options={{ title: "Google Map" }} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
