@@ -14,7 +14,7 @@ const Welcome = ({ navigation }) => {
                 <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
                     <Text style={styles.btnText}><Icon name="plus" size={20} /> Register YourSelf</Text>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
+                <TouchableOpacity onPress={() => navigation.push('Instructions')} style={styles.btn}>
                     <Text style={styles.btnText}>Read Instructions <Icon name="question" size={20} /></Text>
                 </TouchableOpacity>
             </View>

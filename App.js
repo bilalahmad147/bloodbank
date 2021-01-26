@@ -5,6 +5,7 @@ import { StyleSheet, Text, View, Button, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Welcome from './src/Components/Welcome';
+import Instructions from './src/Components/Instruction'
 import Register from './src/Components/Register';
 import Home from './src/Components/Home';
 import DonateBlood from './src/Components/DonateBlood';
@@ -22,7 +23,7 @@ export default function App() {
       <StatusBar style="auto" />
       <Stack.Navigator screenOptions={{
         headerStyle: {
-          backgroundColor: '#f4511e',
+          backgroundColor: 'red',
           
         },
         headerTintColor: '#fff',
@@ -31,9 +32,10 @@ export default function App() {
         },
       }}>
         <Stack.Screen name="Welcome" component={Welcome} options={{ title: "Blood Bank App", headerTitleAlign: 'center' }} />
+        <Stack.Screen name="Instructions" component={Instructions} options={{ title: "Instructions" }} />
         <Stack.Screen name="Register" component={Register} options={{ title: "Login Screen" }} />
         <Stack.Screen name="Home" component={Home} options={{ title: "Home Screen" }} />
-        <Stack.Screen name="DonateBlood" component={DonateBlood} options={{ title: "Make Choice" }} />
+        <Stack.Screen name="DonateBlood" component={DonateBlood} options={{ title: "Enter Details" }} />
         <Stack.Screen name="SubmitDetail" component={SubmitDetail} options={{ title: "Submit detail" }} />
         <Stack.Screen name="FindBlood" component={FindBlood} options={{ title: "Find Blood" }} />
         <Stack.Screen name="SubmitInfo" component={SubmitInfo} options={{ title: "Submit Detail" }} />
