@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const FindBlood = () => {
+const FindBlood = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
@@ -22,8 +22,8 @@ const FindBlood = () => {
                     style={styles.input}
                     placeholder="Enter City.."
                 />
-                <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
-                    <Text style={styles.btnText}><Icon name="search" size={20} />Search Blood</Text>
+                <TouchableOpacity onPress={() => navigation.push('DonorsList')} style={styles.btn}>
+                    <Text style={styles.btnText}><Icon name="search" size={20} /> Search Blood</Text>
                 </TouchableOpacity>
             </View>
             <StatusBar style="auto" />

@@ -3,40 +3,21 @@ import React from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const DonorsList = ({ navigation }) => {
+const DonorsList = () => {
 
     return (
         <View style={styles.container}>
             <View style={{ flex: 2 }}>
-                <Text style={styles.text}><Icon name="info" size={100} /></Text>
+                <Text style={styles.text}><Icon name="heartbeat" size={100} /></Text>
             </View>
             <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Enter Details</Text>
+                <Text style={styles.text}>Donors List</Text>
             </View>
             <View style={{ flex: 6 }}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Enter Name.."
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Age.."
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Blood Group.."
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter CityName.."
-                />
-                <TextInput
-                    style={styles.input}
                     placeholder="Enter Phone Number.."
                 />
-                <TouchableOpacity onPress={() => navigation.push('SubmitDetail')} style={styles.btn}>
-                    <Text style={styles.btnText}>Submit Detail <Icon name="share" size={20} /></Text>
-                </TouchableOpacity>
             </View>
             <StatusBar style="auto" />
         </View>
