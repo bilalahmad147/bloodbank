@@ -15,7 +15,7 @@ const Welcome = ({ navigation }) => {
                     <Text style={styles.btnText}><Icon name="plus" size={20} /> Register YourSelf</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
-                    <Text style={styles.btnText}>Read Instructions</Text>
+                    <Text style={styles.btnText}>Read Instructions <Icon name="question" size={20} /></Text>
                 </TouchableOpacity>
             </View>
             <StatusBar style="auto" />
@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
         backgroundColor: "red",
         padding: 9,
         margin: 5,
+        borderRadius: 10,
     },
     btnText: {
         color: "white",

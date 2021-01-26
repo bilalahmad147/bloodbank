@@ -8,9 +8,12 @@ const Register = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Login For Action</Text>
+                <Text style={styles.text}><Icon name="ambulance" size={100} /></Text>
             </View>
-            <View style={{ flex: 2 }}>
+            <View style={{ flex: 1 }}>
+                <Text style={styles.text}>Login To Proceed</Text>
+            </View>
+            <View style={{ flex: 3 }}>
                 <TextInput
                     style={styles.input}
                     placeholder="Enter user name.."
@@ -26,8 +29,6 @@ const Register = ({ navigation }) => {
                     <Text style={styles.btnText}><Icon name="facebook" size={20} />aceBook Login</Text>
                 </TouchableOpacity>
             </View>
-            <View style={{ flex: 1 }}>
-            </View>
             <StatusBar style="auto" />
         </View>
     );
@@ -41,10 +42,8 @@ const styles = StyleSheet.create({
     text: {
         color: "red",
         paddingTop: 30,
-        margin: 10,
         fontSize: 30,
         textAlign: 'center',
-        fontStyle: 'italic',
         fontWeight: 'bold'
     },
     input: {
@@ -56,6 +55,7 @@ const styles = StyleSheet.create({
         backgroundColor: "red",
         padding: 9,
         margin: 5,
+        borderRadius: 10,
     },
     btnText: {
         color: "white",
