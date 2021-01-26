@@ -7,10 +7,12 @@ const Welcome = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1, padding: 30, marginTop: 30 }}>
-                <Image style={{ width: 300, height: 170 }} source={require('./imgs/welcomeImg.png')} />
+            <View style={{ flex: 1 }}>
+                <Text style={styles.text}>
+                    <Image style={{ width: 300, height: 170 }} source={require('./imgs/welcomeImg.png')} />
+                </Text>
             </View>
-            <View style={{ flex: 2 }}>
+            <View style={{ flex: 1 }}>
                 <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
                     <Text style={styles.btnText}><Icon name="plus" size={20} /> Register YourSelf</Text>
                 </TouchableOpacity>
@@ -27,6 +29,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white',
+    },
+    text: {
+        padding: 30,
+        textAlign: 'center',
+        margin: 40,
     },
     btn: {
         backgroundColor: "red",
