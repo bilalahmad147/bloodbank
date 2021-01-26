@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View, Button, Image } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 
 const Welcome = ({ navigation }) => {
 
@@ -8,16 +9,18 @@ const Welcome = ({ navigation }) => {
         // <View>
         // </View>
         <View style={styles.container}>
-            <View style={{ flex: 1 }}>
-                <Image style={{ width: 300, height: 300 }} source={{ uri: 'https://cdn.pixabay.com/photo/2014/02/27/16/10/tree-276014__340.jpg' }} />
+            <View style={{ flex: 1, padding: 30, marginTop: 30 }}>
+                <Image style={{ width: 300, height: 170 }} source={require('./imgs/welcomeImg.png')} />
             </View>
-            <View style={{ flex: 1, backgroundColor: 'yellow' }}>
-                <Text style={styles.text}>Find Donor Or Be Donor</Text>
-                <Button
-                    title="Register YourSelf"
-                    onPress={() => navigation.push('Register')}
-                />
+            <View style={{ flex: 2 }}>
+                <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
+                    <Text style={styles.btnText}><Icon name="plus" size={20} /> Register YourSelf</Text>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
+                    <Text style={styles.btnText}>Read Instructions</Text>
+                </TouchableOpacity>
             </View>
+
             <StatusBar style="auto" />
         </View>
     );
@@ -26,14 +29,18 @@ const Welcome = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: 'white',
     },
-    text: {
-        color: "black",
-        fontSize: 40,
-        fontFamily: 'fantasy'
+    btn: {
+        backgroundColor: "red",
+        padding: 9,
+        margin: 5,
     },
+    btnText: {
+        color: "white",
+        fontSize: 20,
+        textAlign: 'center',
+    }
 });
 
 export default Welcome;
