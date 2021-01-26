@@ -1,9 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Register = ({ navigation }) => {
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
 
     return (
         <View style={styles.container}>
@@ -17,10 +20,17 @@ const Register = ({ navigation }) => {
                 <TextInput
                     style={styles.input}
                     placeholder="Enter User Email.."
+                    value={email}
+                    onChangeText={(text) => setEmail(text)}
+                    autoCapitalize="none"
                 />
                 <TextInput
                     style={styles.input}
                     placeholder="Enter Password.."
+                    secureTextEntry
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                    autoCapitalize="none"
                 />
                 <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
                     <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
