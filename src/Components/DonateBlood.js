@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const DonateBlood = () => {
+const DonateBlood = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
@@ -34,7 +34,7 @@ const DonateBlood = () => {
                     style={styles.input}
                     placeholder="Enter Phone Number.."
                 />
-                <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
+                <TouchableOpacity onPress={() => navigation.push('SubmitDetail')} style={styles.btn}>
                     <Text style={styles.btnText}>Submit Detail <Icon name="share" size={20} /></Text>
                 </TouchableOpacity>
             </View>

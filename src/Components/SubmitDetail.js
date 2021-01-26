@@ -3,39 +3,46 @@ import React from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const SubmitDetail = () => {
+const SubmitDetail = ({ navigation }) => {
 
     return (
-        <View>
-            <TextInput
-                style={styles.input}
-                placeholder="Enter user name.."
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Enter password.."
-            />
-            <TouchableOpacity style={styles.btn}>
-                <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
-            </TouchableOpacity>
+        <View style={styles.container}>
+            <View style={{ flex: 1 }}>
+                <Text style={styles.text}><Icon name="heart" size={100} /></Text>
+            </View>
+            <View style={{ flex: 1 }}>
+                <Text style={styles.text}>ThankYou for Your Contribution</Text>
+            </View>
+            <View style={{ flex: 1 }}>
+                <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
+                    <Text style={styles.btnText}><Icon name="undo" size={20} /> Back To Home</Text>
+                </TouchableOpacity>
+            </View>
             <StatusBar style="auto" />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    input: {
-        height: 60,
-        padding: 8,
-        fontSize: 16,
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
+    text: {
+        color: "red",
+        paddingTop: 30,
+        fontSize: 30,
+        textAlign: 'center',
+        fontWeight: 'bold'
     },
     btn: {
-        backgroundColor: "#c2bad8",
+        backgroundColor: "red",
         padding: 9,
         margin: 5,
+        borderRadius: 10,
     },
     btnText: {
-        color: "darkslateblue",
+        color: "white",
         fontSize: 20,
         textAlign: 'center',
     }
