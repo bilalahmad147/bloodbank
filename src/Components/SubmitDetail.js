@@ -14,7 +14,7 @@ const SubmitDetail = ({ navigation }) => {
                 <Text style={styles.text}>ThankYou for Your Contribution</Text>
             </View>
             <View style={{ flex: 1 }}>
-                <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
+                <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.btn}>
                     <Text style={styles.btnText}><Icon name="undo" size={20} /> Back To Home</Text>
                 </TouchableOpacity>
             </View>

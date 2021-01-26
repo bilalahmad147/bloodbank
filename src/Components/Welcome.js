@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     text: {
         padding: 30,
         textAlign: 'center',
-        margin: 40,
+        marginTop: 40,
     },
     btn: {
         backgroundColor: "red",

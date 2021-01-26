@@ -1,25 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, View, Text, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const DonorsList = () => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 2 }}>
-                <Text style={styles.text}><Icon name="heartbeat" size={100} /></Text>
-            </View>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Donors List</Text>
-            </View>
-            <View style={{ flex: 6 }}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Phone Number.."
-                />
-            </View>
-            <StatusBar style="auto" />
+            <ScrollView>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}><Icon name="heartbeat" size={100} /></Text>
+                    <Text style={styles.text}>Donors List</Text>
+                </View>
+                <View style={{ flex: 6 }}>
+                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                </View>
+                <StatusBar style="auto" />
+            </ScrollView>
         </View>
     );
 }
@@ -31,27 +34,20 @@ const styles = StyleSheet.create({
     },
     text: {
         color: "red",
-        paddingTop: 30,
+        padding: 10,
         fontSize: 30,
         textAlign: 'center',
         fontWeight: 'bold'
     },
-    input: {
-        height: 60,
-        padding: 8,
-        fontSize: 16,
-    },
-    btn: {
-        backgroundColor: "red",
-        padding: 9,
-        margin: 5,
-        borderRadius: 10,
-    },
-    btnText: {
+    text1: {
+        backgroundColor: 'red',
+        margin: 10,
         color: "white",
-        fontSize: 20,
+        padding: 10,
+        fontSize: 30,
         textAlign: 'center',
-    }
+        fontWeight: 'bold'
+    },
 });
 
 export default DonorsList;
