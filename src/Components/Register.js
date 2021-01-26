@@ -16,11 +16,11 @@ const Register = ({ navigation }) => {
             <View style={{ flex: 3 }}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Enter user name.."
+                    placeholder="Enter User Email.."
                 />
                 <TextInput
                     style={styles.input}
-                    placeholder="Enter password.."
+                    placeholder="Enter Password.."
                 />
                 <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
                     <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
