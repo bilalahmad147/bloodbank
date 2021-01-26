@@ -6,8 +6,6 @@ import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 const Welcome = ({ navigation }) => {
 
     return (
-        // <View>
-        // </View>
         <View style={styles.container}>
             <View style={{ flex: 1, padding: 30, marginTop: 30 }}>
                 <Image style={{ width: 300, height: 170 }} source={require('./imgs/welcomeImg.png')} />
@@ -20,7 +18,6 @@ const Welcome = ({ navigation }) => {
                     <Text style={styles.btnText}>Read Instructions</Text>
                 </TouchableOpacity>
             </View>
-
             <StatusBar style="auto" />
         </View>
     );
