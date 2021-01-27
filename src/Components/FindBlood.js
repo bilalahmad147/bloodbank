@@ -1,32 +1,34 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const FindBlood = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}><Icon name="search" size={100} /></Text>
-            </View>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Find Blood</Text>
-            </View>
-            <View style={{ flex: 3 }}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Blood Group.."
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter City.."
-                />
-                <TouchableOpacity onPress={() => navigation.push('DonorsList')} style={styles.btn}>
-                    <Text style={styles.btnText}><Icon name="search" size={20} /> Search Blood</Text>
-                </TouchableOpacity>
-            </View>
-            <StatusBar style="auto" />
+            <ScrollView>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}><Icon name="search" size={100} /></Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}>Find Blood</Text>
+                </View>
+                <View style={{ flex: 3 }}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter Blood Group.."
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter City.."
+                    />
+                    <TouchableOpacity onPress={() => navigation.push('DonorsList')} style={styles.btn}>
+                        <Text style={styles.btnText}><Icon name="search" size={20} /> Search Blood</Text>
+                    </TouchableOpacity>
+                </View>
+                <StatusBar style="auto" />
+            </ScrollView>
         </View>
     );
 }

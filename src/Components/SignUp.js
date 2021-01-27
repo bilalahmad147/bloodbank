@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { firebase } from '../Config/Config'
 
@@ -47,53 +47,55 @@ const SignUp = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}><Icon name="ambulance" size={100} /></Text>
-            </View>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Sign Up</Text>
-            </View>
-            <View style={{ flex: 3 }}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter User fullName.."
-                    value={fullName}
-                    onChangeText={(text) => setFullName(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter User Email.."
-                    value={email}
-                    onChangeText={(text) => setEmail(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Password.."
-                    secureTextEntry
-                    value={password}
-                    onChangeText={(text) => setPassword(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Confirm Password.."
-                    secureTextEntry
-                    value={confirmPassword}
-                    onChangeText={(text) => setConfirmPassword(text)}
-                    autoCapitalize="none"
-                />
-                <TouchableOpacity onPress={() => onRegisterPress()} style={styles.btn}>
-                    <Text style={styles.btnText}><Icon name="plus" size={20} /> Create account</Text>
-                </TouchableOpacity>
-                <Text style={styles.text1}>Alreay got an account ?
-                    <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
-                        <Text style={styles.btnText}>Login</Text>
+            <ScrollView>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}><Icon name="ambulance" size={100} /></Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}>Sign Up</Text>
+                </View>
+                <View style={{ flex: 3 }}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter User fullName.."
+                        value={fullName}
+                        onChangeText={(text) => setFullName(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter User Email.."
+                        value={email}
+                        onChangeText={(text) => setEmail(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter Password.."
+                        secureTextEntry
+                        value={password}
+                        onChangeText={(text) => setPassword(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Confirm Password.."
+                        secureTextEntry
+                        value={confirmPassword}
+                        onChangeText={(text) => setConfirmPassword(text)}
+                        autoCapitalize="none"
+                    />
+                    <TouchableOpacity onPress={() => onRegisterPress()} style={styles.btn}>
+                        <Text style={styles.btnText}><Icon name="plus" size={20} /> Create account</Text>
                     </TouchableOpacity>
-                </Text>
-            </View>
-            <StatusBar style="auto" />
+                    <Text style={styles.text1}>Alreay got an account ?
+                    <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
+                            <Text style={styles.btnText}>Login</Text>
+                        </TouchableOpacity>
+                    </Text>
+                </View>
+                <StatusBar style="auto" />
+            </ScrollView>
         </View>
     );
 }

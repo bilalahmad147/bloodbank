@@ -1,27 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const Home = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}><Icon name="medkit" size={100} /></Text>
-            </View>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Make Choice</Text>
-            </View>
-            <View style={{ flex: 2 }}>
-                <TouchableOpacity onPress={() => navigation.push('DonateBlood')} style={styles.btn}>
-                    <Text style={styles.btnText}><Icon name="plus" size={20} /> Donate Blood</Text>
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigation.push('FindBlood')} style={styles.btn}>
-                    <Text style={styles.btnText}><Icon name="search" size={20} /> Find Blood</Text>
-                </TouchableOpacity>
-            </View>
-            <StatusBar style="auto" />
+            <ScrollView>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}><Icon name="medkit" size={100} /></Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}>Make Choice</Text>
+                </View>
+                <View style={{ flex: 2 }}>
+                    <TouchableOpacity onPress={() => navigation.push('DonateBlood')} style={styles.btn}>
+                        <Text style={styles.btnText}><Icon name="plus" size={20} /> Donate Blood</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.push('FindBlood')} style={styles.btn}>
+                        <Text style={styles.btnText}><Icon name="search" size={20} /> Find Blood</Text>
+                    </TouchableOpacity>
+                </View>
+                <StatusBar style="auto" />
+            </ScrollView>
         </View>
     );
 }

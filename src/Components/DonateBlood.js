@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity, KeyboardAwareScrollView } from 'react-native';
+import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const DonateBlood = ({ navigation }) => {
@@ -13,53 +13,55 @@ const DonateBlood = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 2 }}>
-                <Text style={styles.text}><Icon name="info" size={100} /></Text>
-            </View>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Enter Details</Text>
-            </View>
-            <View style={{ flex: 6 }}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Name.."
-                    value={name}
-                    onChangeText={(text) => setName(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Age.."
-                    value={age}
-                    onChangeText={(text) => setAge(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Blood Group.."
-                    value={bloodGroup}
-                    onChangeText={(text) => setBloodGroup(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter CityName.."
-                    value={cityName}
-                    onChangeText={(text) => setCityName(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Phone Number.."
-                    value={phoneNum}
-                    onChangeText={(text) => setPhoneNum(text)}
-                    autoCapitalize="none"
-                />
-                <TouchableOpacity onPress={() => navigation.push('SubmitDetail')} style={styles.btn}>
-                    <Text style={styles.btnText}>Submit Detail <Icon name="share" size={20} /></Text>
-                </TouchableOpacity>
-            </View>
-            <StatusBar style="auto" />
+            <ScrollView>
+                <View style={{ flex: 2 }}>
+                    <Text style={styles.text}><Icon name="info" size={100} /></Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}>Enter Details</Text>
+                </View>
+                <View style={{ flex: 6 }}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter Name.."
+                        value={name}
+                        onChangeText={(text) => setName(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter Age.."
+                        value={age}
+                        onChangeText={(text) => setAge(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter Blood Group.."
+                        value={bloodGroup}
+                        onChangeText={(text) => setBloodGroup(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter CityName.."
+                        value={cityName}
+                        onChangeText={(text) => setCityName(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter Phone Number.."
+                        value={phoneNum}
+                        onChangeText={(text) => setPhoneNum(text)}
+                        autoCapitalize="none"
+                    />
+                    <TouchableOpacity onPress={() => navigation.push('SubmitDetail')} style={styles.btn}>
+                        <Text style={styles.btnText}>Submit Detail <Icon name="share" size={20} /></Text>
+                    </TouchableOpacity>
+                </View>
+                <StatusBar style="auto" />
+            </ScrollView>
         </View>
     );
 }

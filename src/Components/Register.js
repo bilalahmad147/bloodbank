@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { firebase } from '../Config/Config'
 
@@ -39,38 +39,40 @@ const Register = ({ navigation }) => {
 
     return (
         <View style={styles.container}>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}><Icon name="ambulance" size={100} /></Text>
-            </View>
-            <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Login To Proceed</Text>
-            </View>
-            <View style={{ flex: 3 }}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter User Email.."
-                    value={email}
-                    onChangeText={(text) => setEmail(text)}
-                    autoCapitalize="none"
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Enter Password.."
-                    secureTextEntry
-                    value={password}
-                    onChangeText={(text) => setPassword(text)}
-                    autoCapitalize="none"
-                />
-                <TouchableOpacity onPress={() => onLoginPress()} style={styles.btn}>
-                    <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
-                </TouchableOpacity>
-                <Text style={styles.text1}>Don't have an account ?
-                    <TouchableOpacity onPress={() => navigation.push('SignUp')} style={styles.btn}>
-                        <Text style={styles.btnText}>Sign up</Text>
+            <ScrollView>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}><Icon name="ambulance" size={100} /></Text>
+                </View>
+                <View style={{ flex: 1 }}>
+                    <Text style={styles.text}>Login To Proceed</Text>
+                </View>
+                <View style={{ flex: 3 }}>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter User Email.."
+                        value={email}
+                        onChangeText={(text) => setEmail(text)}
+                        autoCapitalize="none"
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Enter Password.."
+                        secureTextEntry
+                        value={password}
+                        onChangeText={(text) => setPassword(text)}
+                        autoCapitalize="none"
+                    />
+                    <TouchableOpacity onPress={() => onLoginPress()} style={styles.btn}>
+                        <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
                     </TouchableOpacity>
-                </Text>
-            </View>
-            <StatusBar style="auto" />
+                    <Text style={styles.text1}>Don't have an account ?
+                    <TouchableOpacity onPress={() => navigation.push('SignUp')} style={styles.btn}>
+                            <Text style={styles.btnText}>Sign up</Text>
+                        </TouchableOpacity>
+                    </Text>
+                </View>
+                <StatusBar style="auto" />
+            </ScrollView>
         </View>
     );
 }
