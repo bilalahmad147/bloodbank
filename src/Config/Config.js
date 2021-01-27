@@ -1,5 +1,7 @@
-import * as firebase from 'firebase/app';
-import '@firebase/auth';
+// import * as firebase from 'firebase';
+// import '@firebase/auth';
+import firebase from '@firebase/app';
+require('firebase/auth');
 import '@firebase/firestore';
 
 const firebaseConfig = {
@@ -12,10 +14,8 @@ const firebaseConfig = {
   appId: "1:878810938835:web:195c4cd79c5c4998120326"
 };
 
-firebase.initializeApp(firebaseConfig)
-
-// if (!firebase.apps.length) {
-//   firebase.initializeApp(firebaseConfig);
-// }
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 
 export { firebase };
