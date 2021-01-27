@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-const Register = ({ navigation }) => {
+const SignUp = ({ navigation }) => {
 
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -14,9 +15,16 @@ const Register = ({ navigation }) => {
                 <Text style={styles.text}><Icon name="ambulance" size={100} /></Text>
             </View>
             <View style={{ flex: 1 }}>
-                <Text style={styles.text}>Login To Proceed</Text>
+                <Text style={styles.text}>Sign Up</Text>
             </View>
             <View style={{ flex: 3 }}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Enter User name.."
+                    value={name}
+                    onChangeText={(text) => setName(text)}
+                    autoCapitalize="none"
+                />
                 <TextInput
                     style={styles.input}
                     placeholder="Enter User Email.."
@@ -32,12 +40,20 @@ const Register = ({ navigation }) => {
                     onChangeText={(text) => setPassword(text)}
                     autoCapitalize="none"
                 />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Confirm Password.."
+                    secureTextEntry
+                    value={password}
+                    onChangeText={(text) => setPassword(text)}
+                    autoCapitalize="none"
+                />
                 <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
-                    <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
+                    <Text style={styles.btnText}><Icon name="plus" size={20} /> Create account</Text>
                 </TouchableOpacity>
-                <Text style={styles.text1}>Don't have an account ?
-                    <TouchableOpacity onPress={() => navigation.push('SignUp')} style={styles.btn}>
-                        <Text style={styles.btnText}>Sign up</Text>
+                <Text style={styles.text1}>Alreay got an account ?
+                    <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
+                        <Text style={styles.btnText}>Login</Text>
                     </TouchableOpacity>
                 </Text>
             </View>
@@ -81,4 +97,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Register;
+export default SignUp;

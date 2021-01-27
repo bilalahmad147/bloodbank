@@ -12,6 +12,7 @@ import DonateBlood from './src/Components/DonateBlood';
 import SubmitDetail from './src/Components/SubmitDetail';
 import FindBlood from './src/Components/FindBlood';
 import DonorsList from './src/Components/DonorsList';
+import SignUp from './src/Components/SignUp';
 
 export default function App() {
 
@@ -33,6 +34,7 @@ export default function App() {
         <Stack.Screen name="Welcome" component={Welcome} options={{ title: "Blood Bank App", headerTitleAlign: 'center' }} />
         <Stack.Screen name="Instructions" component={Instructions} options={{ title: "Instructions" }} />
         <Stack.Screen name="Register" component={Register} options={{ title: "Login Screen" }} />
+        <Stack.Screen name="SignUp" component={SignUp} options={{ title: "Sign up" }} />
         <Stack.Screen name="Home" component={Home} options={{ title: "Home Screen" }} />
         <Stack.Screen name="DonateBlood" component={DonateBlood} options={{ title: "Enter Details" }} />
         <Stack.Screen name="SubmitDetail" component={SubmitDetail} options={{ title: "Submit detail" }} />
