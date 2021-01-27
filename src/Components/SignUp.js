@@ -8,6 +8,7 @@ const SignUp = ({ navigation }) => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [confirmPassword, setConfirmPassword] = useState('')
 
     return (
         <View style={styles.container}>
@@ -44,8 +45,8 @@ const SignUp = ({ navigation }) => {
                     style={styles.input}
                     placeholder="Confirm Password.."
                     secureTextEntry
-                    value={password}
-                    onChangeText={(text) => setPassword(text)}
+                    value={confirmPassword}
+                    onChangeText={(text) => setConfirmPassword(text)}
                     autoCapitalize="none"
                 />
                 <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
