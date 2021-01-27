@@ -2,11 +2,40 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { firebase } from '../Config/Config'
+
 
 const Register = ({ navigation }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const onLoginPress = () => {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((response) => {
+                const uid = response.user.uid
+                const usersRef = firebase.firestore().collection('users')
+                usersRef
+                    .doc(uid)
+                    .get()
+                    .then(firestoreDocument => {
+                        if (!firestoreDocument.exists) {
+                            alert("User does not exist anymore.")
+                            return;
+                        }
+                        const user = firestoreDocument.data()
+                        navigation.navigate('Home', { user: user })
+                    })
+                    .catch(error => {
+                        alert(error)
+                    });
+            })
+            .catch(error => {
+                alert(error)
+            })
+    }
 
     return (
         <View style={styles.container}>
@@ -32,7 +61,7 @@ const Register = ({ navigation }) => {
                     onChangeText={(text) => setPassword(text)}
                     autoCapitalize="none"
                 />
-                <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
+                <TouchableOpacity onPress={() => onLoginPress()} style={styles.btn}>
                     <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
                 </TouchableOpacity>
                 <Text style={styles.text1}>Don't have an account ?

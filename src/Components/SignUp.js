@@ -2,13 +2,48 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { firebase } from '../Config/Config'
 
 const SignUp = ({ navigation }) => {
 
-    const [name, setName] = useState('')
+    const [fullName, setFullName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+
+
+    const onRegisterPress = () => {
+        if (password !== confirmPassword) {
+            alert("Passwords don't match.")
+            return
+        }
+
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((response) => {
+                const uid = response.user.uid
+                const data = {
+                    id: uid,
+                    email,
+                    fullName,
+                };
+                const usersRef = firebase.firestore().collection('users')
+                usersRef
+                    .doc(uid)
+                    .set(data)
+                    .then(() => {
+                        navigation.navigate('Home', { user: data })
+                    })
+                    .catch((error) => {
+                        alert(error)
+                    });
+            })
+            .catch((error) => {
+                alert(error)
+            });
+    }
+
 
     return (
         <View style={styles.container}>
@@ -21,9 +56,9 @@ const SignUp = ({ navigation }) => {
             <View style={{ flex: 3 }}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Enter User name.."
-                    value={name}
-                    onChangeText={(text) => setName(text)}
+                    placeholder="Enter User fullName.."
+                    value={fullName}
+                    onChangeText={(text) => setFullName(text)}
                     autoCapitalize="none"
                 />
                 <TextInput
@@ -49,7 +84,7 @@ const SignUp = ({ navigation }) => {
                     onChangeText={(text) => setConfirmPassword(text)}
                     autoCapitalize="none"
                 />
-                <TouchableOpacity onPress={() => navigation.push('Home')} style={styles.btn}>
+                <TouchableOpacity onPress={() => onRegisterPress()} style={styles.btn}>
                     <Text style={styles.btnText}><Icon name="plus" size={20} /> Create account</Text>
                 </TouchableOpacity>
                 <Text style={styles.text1}>Alreay got an account ?
