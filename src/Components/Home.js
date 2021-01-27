@@ -15,10 +15,10 @@ const Home = ({ navigation }) => {
                     <Text style={styles.text}>Make Choice</Text>
                 </View>
                 <View style={{ flex: 2 }}>
-                    <TouchableOpacity onPress={() => navigation.push('DonateBlood')} style={styles.btn}>
+                    <TouchableOpacity onPress={() => navigation.navigate('DonateBlood')} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="plus" size={20} /> Donate Blood</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.push('FindBlood')} style={styles.btn}>
+                    <TouchableOpacity onPress={() => navigation.navigate('FindBlood')} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="search" size={20} /> Find Blood</Text>
                     </TouchableOpacity>
                 </View>

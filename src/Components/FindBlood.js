@@ -23,7 +23,7 @@ const FindBlood = ({ navigation }) => {
                         style={styles.input}
                         placeholder="Enter City.."
                     />
-                    <TouchableOpacity onPress={() => navigation.push('DonorsList')} style={styles.btn}>
+                    <TouchableOpacity onPress={() => navigation.navigate('DonorsList')} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="search" size={20} /> Search Blood</Text>
                     </TouchableOpacity>
                 </View>

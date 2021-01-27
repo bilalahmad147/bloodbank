@@ -88,11 +88,9 @@ const SignUp = ({ navigation }) => {
                     <TouchableOpacity onPress={() => onRegisterPress()} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="plus" size={20} /> Create account</Text>
                     </TouchableOpacity>
-                    <Text style={styles.text1}>Alreay got an account ?
-                    <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
-                            <Text style={styles.btnText}>Login</Text>
-                        </TouchableOpacity>
-                    </Text>
+                    <View style={styles.footerView}>
+                        <Text style={styles.footerText}>Already have an account? <Text onPress={() => navigation.navigate('Register')} style={styles.footerLink}>Login</Text></Text>
+                    </View>
                 </View>
                 <StatusBar style="auto" />
             </ScrollView>
@@ -112,11 +110,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: 'bold'
     },
-    text1: {
-        color: "red",
-        fontSize: 22,
-        textAlign: 'center',
-    },
     input: {
         height: 60,
         padding: 8,
@@ -132,6 +125,20 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 20,
         textAlign: 'center',
+    },
+    footerView: {
+        flex: 1,
+        alignItems: "center",
+        margin: 20
+    },
+    footerText: {
+        fontSize: 18,
+        color: '#2e2e2d'
+    },
+    footerLink: {
+        color: "#788eec",
+        fontWeight: "bold",
+        fontSize: 20
     }
 });
 

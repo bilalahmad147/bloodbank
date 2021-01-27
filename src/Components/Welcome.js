@@ -8,16 +8,16 @@ const Welcome = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <ScrollView>
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 3 }}>
                     <Text style={styles.text}>
                         <Image style={{ width: 300, height: 170 }} source={require('./imgs/welcomeImg.png')} />
                     </Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                    <TouchableOpacity onPress={() => navigation.push('Register')} style={styles.btn}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Register')} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="plus" size={20} /> Register YourSelf</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.push('Instructions')} style={styles.btn}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Instructions')} style={styles.btn}>
                         <Text style={styles.btnText}>Read Instructions <Icon name="question" size={20} /></Text>
                     </TouchableOpacity>
                 </View>
@@ -33,9 +33,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
     },
     text: {
-        padding: 30,
         textAlign: 'center',
-        marginTop: 40,
+        backgroundColor: 'red'
     },
     btn: {
         backgroundColor: "red",

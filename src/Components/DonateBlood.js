@@ -56,7 +56,7 @@ const DonateBlood = ({ navigation }) => {
                         onChangeText={(text) => setPhoneNum(text)}
                         autoCapitalize="none"
                     />
-                    <TouchableOpacity onPress={() => navigation.push('SubmitDetail')} style={styles.btn}>
+                    <TouchableOpacity onPress={() => navigation.navigate('SubmitDetail')} style={styles.btn}>
                         <Text style={styles.btnText}>Submit Detail <Icon name="share" size={20} /></Text>
                     </TouchableOpacity>
                 </View>
