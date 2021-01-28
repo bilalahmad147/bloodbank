@@ -1,15 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView, Picker } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { uuid } from 'uuidv4';
+import { firebase } from '../Config/Config'
+
 
 const DonateBlood = ({ navigation }) => {
 
     const [name, setName] = useState('')
     const [age, setAge] = useState('')
-    const [bloodGroup, setBloodGroup] = useState('')
+    const [selectedValue, setSelectedValue] = useState("O+");
     const [cityName, setCityName] = useState('')
     const [phoneNum, setPhoneNum] = useState('')
+
+    const userId = uuid()
+
+    const sendDonorData = () => {
+
+        if (Number(age) < 18 || phoneNum.length < 11 ) {
+            alert("Under 18 or incorrect number")
+            return
+        }
+
+        firebase.database().ref('users/' + userId).set({
+            userName: name,
+            userAge: age,
+            userBloodGroup: selectedValue,
+            userCityName: cityName,
+            userPhoneNum: phoneNum
+        });
+        navigation.navigate('SubmitDetail')
+        console.log(name, age, selectedValue, cityName, phoneNum)
+    }
 
     return (
         <View style={styles.container}>
@@ -35,13 +58,20 @@ const DonateBlood = ({ navigation }) => {
                         onChangeText={(text) => setAge(text)}
                         autoCapitalize="none"
                     />
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Enter Blood Group.."
-                        value={bloodGroup}
-                        onChangeText={(text) => setBloodGroup(text)}
-                        autoCapitalize="none"
-                    />
+                    <Picker
+                        selectedValue={selectedValue}
+                        style={{ height: 50, width: '100%' }}
+                        onValueChange={(itemValue) => setSelectedValue(itemValue)}
+                    >
+                        <Picker.Item label="O+" value="O+" />
+                        <Picker.Item label="A+" value="A+" />
+                        <Picker.Item label="B+" value="B+" />
+                        <Picker.Item label="AB+" value="AB+" />
+                        <Picker.Item label="O-" value="O-" />
+                        <Picker.Item label="A-" value="A-" />
+                        <Picker.Item label="B-" value="B-" />
+                        <Picker.Item label="AB-" value="AB-" />
+                    </Picker>
                     <TextInput
                         style={styles.input}
                         placeholder="Enter CityName.."
@@ -51,12 +81,12 @@ const DonateBlood = ({ navigation }) => {
                     />
                     <TextInput
                         style={styles.input}
-                        placeholder="Enter Phone Number.."
+                        placeholder="Enter Phone Number like 03001122333"
                         value={phoneNum}
                         onChangeText={(text) => setPhoneNum(text)}
                         autoCapitalize="none"
                     />
-                    <TouchableOpacity onPress={() => navigation.navigate('SubmitDetail')} style={styles.btn}>
+                    <TouchableOpacity onPress={sendDonorData} style={styles.btn}>
                         <Text style={styles.btnText}>Submit Detail <Icon name="share" size={20} /></Text>
                     </TouchableOpacity>
                 </View>

@@ -10,32 +10,32 @@ const Register = ({ navigation }) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    const onLoginPress = () => {
-        firebase
-            .auth()
-            .signInWithEmailAndPassword(email, password)
-            .then((response) => {
-                const uid = response.user.uid
-                const usersRef = firebase.firestore().collection('users')
-                usersRef
-                    .doc(uid)
-                    .get()
-                    .then(firestoreDocument => {
-                        if (!firestoreDocument.exists) {
-                            alert("User does not exist anymore.")
-                            return;
-                        }
-                        const user = firestoreDocument.data()
-                        navigation.navigate('Home', { user: user })
-                    })
-                    .catch(error => {
-                        alert(error)
-                    });
-            })
-            .catch(error => {
-                alert(error)
-            })
-    }
+    // const onLoginPress = () => {
+    //     firebase
+    //         .auth()
+    //         .signInWithEmailAndPassword(email, password)
+    //         .then((response) => {
+    //             const uid = response.user.uid
+    //             const usersRef = firebase.firestore().collection('users')
+    //             usersRef
+    //                 .doc(uid)
+    //                 .get()
+    //                 .then(firestoreDocument => {
+    //                     if (!firestoreDocument.exists) {
+    //                         alert("User does not exist anymore.")
+    //                         return;
+    //                     }
+    //                     const user = firestoreDocument.data()
+    //                     navigation.navigate('Home', { user: user })
+    //                 })
+    //                 .catch(error => {
+    //                     alert(error)
+    //                 });
+    //         })
+    //         .catch(error => {
+    //             alert(error)
+    //         })
+    // }
 
     return (
         <View style={styles.container}>
@@ -62,7 +62,7 @@ const Register = ({ navigation }) => {
                         onChangeText={(text) => setPassword(text)}
                         autoCapitalize="none"
                     />
-                    <TouchableOpacity onPress={() => onLoginPress()} style={styles.btn}>
+                    <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
                     </TouchableOpacity>
                     <View style={styles.footerView}>
