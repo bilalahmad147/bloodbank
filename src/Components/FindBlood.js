@@ -7,32 +7,23 @@ import { firebase } from '../Config/Config'
 const FindBlood = ({ navigation }) => {
 
     const [selectedValue, setSelectedValue] = useState("O+");
-    const [cityName, setCityName] = useState('')
-
+    const [userData, setUserData] = useState([])
 
     const getUserData = () => {
-        const userRef = firebase.database().ref('users')
-            .once('value', function (data) {
-                const dataObject = (data.val())
-                const dataArray = Object.values(dataObject)
-                // return dataArray
-            })
-            return userRef
+
+        function getDonorDetails(selectedValue) {
+            if (selectedValue === 'O+' || selectedValue === 'A+' || selectedValue === 'B+' || selectedValue === 'AB+' || selectedValue === 'O-' || selectedValue === 'A-' || selectedValue === 'B-' || selectedValue === 'AB-') {
+                return firebase.database().ref('users').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+            }
+            return alert("Incorrect command")
+        }
+
+        getDonorDetails(selectedValue)
+
     }
-
-    console.log(getUserData())
-
-
-
-    // firebase.database().ref('users').once('value')
-    //     .then((snapshot) => {
-    //         const dataObject = (snapshot.val())
-    //         const dataArray = Object.values(dataObject)
-    //         return dataArray;
-    //     })
-    // const userRef = (dataArray) => {
-    //     console.log(dataArray.val())
-    // }
 
     return (
         <View style={styles.container}>
@@ -58,16 +49,17 @@ const FindBlood = ({ navigation }) => {
                         <Picker.Item label="B-" value="B-" />
                         <Picker.Item label="AB-" value="AB-" />
                     </Picker>
-                    <TextInput
-                        style={styles.input}
-                        placeholder="Enter CityName.."
-                        value={cityName}
-                        onChangeText={(text) => setCityName(text)}
-                        autoCapitalize="none"
-                    />
                     <TouchableOpacity onPress={getUserData} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="search" size={20} /> Search Blood</Text>
                     </TouchableOpacity>
+
+                    <View style={{ flex: 6 }}>
+                        {
+                            userData.map((ind , key) => {
+                                return <Text key={key} style={styles.text1}>Name: {ind.userName} BloodGroup : {ind.userBloodGroup} Ph NO: {ind.userPhoneNum} City Name: {ind.userCityName}</Text>
+                            })
+                        }
+                    </View>
                 </View>
                 <StatusBar style="auto" />
             </ScrollView>
@@ -102,7 +94,16 @@ const styles = StyleSheet.create({
         color: "white",
         fontSize: 20,
         textAlign: 'center',
-    }
+    },
+    text1: {
+        backgroundColor: 'red',
+        margin: 10,
+        color: "white",
+        padding: 5,
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold'
+    },
 });
 
 export default FindBlood;
