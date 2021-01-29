@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView, Picker } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { uuid } from 'uuidv4';
 import { firebase } from '../Config/Config'
 
 
@@ -14,24 +13,24 @@ const DonateBlood = ({ navigation }) => {
     const [cityName, setCityName] = useState('')
     const [phoneNum, setPhoneNum] = useState('')
 
-    const userId = uuid()
-
     const sendDonorData = () => {
 
-        if (Number(age) < 18 || phoneNum.length < 11 ) {
+        if (Number(age) < 18 || phoneNum.length < 11) {
             alert("Under 18 or incorrect number")
             return
         }
-
-        firebase.database().ref('users/' + userId).set({
+        
+        const key = firebase.database().ref('users').push().key;
+        const users = {
+            id: key,
             userName: name,
             userAge: age,
             userBloodGroup: selectedValue,
             userCityName: cityName,
             userPhoneNum: phoneNum
-        });
+        }
+        firebase.database().ref('users/' + key).set(users)
         navigation.navigate('SubmitDetail')
-        console.log(name, age, selectedValue, cityName, phoneNum)
     }
 
     return (

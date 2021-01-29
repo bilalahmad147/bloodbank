@@ -1,9 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, TextInput, View, Text, ScrollView } from 'react-native';
+import { StyleSheet, View, Text, ScrollView, FlatList } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { firebase } from '../Config/Config'
 
 const DonorsList = () => {
+
 
     return (
         <View style={styles.container}>
@@ -13,13 +15,11 @@ const DonorsList = () => {
                     <Text style={styles.text}>Donors List</Text>
                 </View>
                 <View style={{ flex: 6 }}>
-                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
-                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
-                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
-                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
-                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
-                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
-                    <Text style={styles.text1}>Name : Bilal Ahmad Ph NO: 03082094560 BloodGroup : O+</Text>
+                    {/* <FlatList
+                        data={userRef}
+                        renderItem={renderItem}
+                        keyExtractor={item => item.id}
+                    /> */}
                 </View>
                 <StatusBar style="auto" />
             </ScrollView>
