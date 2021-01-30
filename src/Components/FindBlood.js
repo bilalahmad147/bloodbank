@@ -4,7 +4,7 @@ import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView, Picker
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { firebase } from '../Config/Config'
 
-const FindBlood = ({ navigation }) => {
+const FindBlood = () => {
 
     const [selectedValue, setSelectedValue] = useState("O+");
     const [userData, setUserData] = useState([])
@@ -55,8 +55,13 @@ const FindBlood = ({ navigation }) => {
 
                     <View style={{ flex: 6 }}>
                         {
-                            userData.map((ind , key) => {
-                                return <Text key={key} style={styles.text1}>Name: {ind.userName} BloodGroup : {ind.userBloodGroup} Ph NO: {ind.userPhoneNum} City Name: {ind.userCityName}</Text>
+                            userData.map((ind, key) => {
+                                return <View style={styles.view1} key={key}>
+                                    <Text style={styles.text1}>Name: {ind.userName}</Text>
+                                    <Text style={styles.text1}>BloodGroup : {ind.userBloodGroup}</Text>
+                                    <Text style={styles.text1}>Ph NO: {ind.userPhoneNum}</Text>
+                                    <Text style={styles.text1}>City Name: {ind.userCityName}</Text>
+                                </View>
                             })
                         }
                     </View>
@@ -77,7 +82,8 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         fontSize: 30,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontStyle: 'italic',
     },
     input: {
         height: 60,
@@ -95,11 +101,14 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textAlign: 'center',
     },
-    text1: {
+    view1: {
         backgroundColor: 'red',
+        padding: 9,
+        borderRadius: 10,
         margin: 10,
+    },
+    text1: {
         color: "white",
-        padding: 5,
         fontSize: 20,
         textAlign: 'center',
     },

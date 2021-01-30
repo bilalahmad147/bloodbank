@@ -1,7 +1,6 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Welcome from './src/Components/Welcome';
@@ -11,7 +10,6 @@ import Home from './src/Components/Home';
 import DonateBlood from './src/Components/DonateBlood';
 import SubmitDetail from './src/Components/SubmitDetail';
 import FindBlood from './src/Components/FindBlood';
-import DonorsList from './src/Components/DonorsList';
 import SignUp from './src/Components/SignUp';
 
 export default function App() {
@@ -39,7 +37,6 @@ export default function App() {
         <Stack.Screen name="DonateBlood" component={DonateBlood} options={{ title: "Enter Details" }} />
         <Stack.Screen name="SubmitDetail" component={SubmitDetail} options={{ title: "Submit detail" }} />
         <Stack.Screen name="FindBlood" component={FindBlood} options={{ title: "Find Blood" }} />
-        <Stack.Screen name="DonorsList" component={DonorsList} options={{ title: "Donors List" }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

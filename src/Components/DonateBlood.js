@@ -105,7 +105,8 @@ const styles = StyleSheet.create({
         paddingTop: 30,
         fontSize: 30,
         textAlign: 'center',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontStyle: 'italic',
     },
     input: {
         height: 60,
