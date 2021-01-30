@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
         padding: 5,
         fontSize: 20,
         textAlign: 'center',
-        fontWeight: 'bold'
     },
 });
 
