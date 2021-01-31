@@ -11,6 +11,24 @@ import DonateBlood from './src/Components/DonateBlood';
 import SubmitDetail from './src/Components/SubmitDetail';
 import FindBlood from './src/Components/FindBlood';
 import SignUp from './src/Components/SignUp';
+// import { useNetInfo } from "@react-native-community/netinfo";
+// import { View, Text } from 'react-native';
+
+
+// const netInfo = useNetInfo();
+// const internetConnection = netInfo.isConnected
+// console.log(internetConnection)
+// if (internetConnection === true) {
+//   <View>No internet connection</View>
+// }
+
+// return (
+//   <View>
+//     <Text>Type: {netInfo.type}</Text>
+//     <Text>Is Connected? {netInfo.isConnected.toString()}</Text>
+//   </View>
+// )
+
 
 export default function App() {
 
@@ -41,3 +59,4 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
