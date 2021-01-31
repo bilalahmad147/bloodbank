@@ -28,8 +28,8 @@ const onPress = async () => {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
         {
-          title: 'Example App Location Permission',
-          message: 'Example App needs access to your Location',
+          title: 'Blood Bank App Location Permission',
+          message: 'Blood Bank App needs access to your Location',
         },
       );
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
@@ -45,7 +45,7 @@ const onPress = async () => {
   };
 
   const proceed = () => {
-    alert('You can use the Location');
+    // alert('You can use the Location');
 
   return (
     <SafeAreaView style={{flex: 1}}>

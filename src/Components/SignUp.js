@@ -42,6 +42,12 @@ const SignUp = ({ navigation }) => {
             .catch((error) => {
                 alert(error)
             });
+
+            alert("Account created successfully.")
+            setFullName("");
+            setEmail("");
+            setPassword("");
+            setConfirmPassword("");
     }
 
 

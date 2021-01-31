@@ -8,12 +8,12 @@ import { firebase } from '../Config/Config'
 
 const Register = ({ navigation }) => {
 
-    onPress();
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const onLoginPress = () => {
+        onPress();
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
@@ -38,6 +38,9 @@ const Register = ({ navigation }) => {
             .catch(error => {
                 alert(error)
             })
+
+        setEmail("");
+        setPassword("");
     }
 
     return (
@@ -65,7 +68,7 @@ const Register = ({ navigation }) => {
                         onChangeText={(text) => setPassword(text)}
                         autoCapitalize="none"
                     />
-                    <TouchableOpacity onPress={() => navigation.navigate('Home')} style={styles.btn}>
+                    <TouchableOpacity onPress={() => onLoginPress()} style={styles.btn}>
                         <Text style={styles.btnText}><Icon name="plus" size={20} /> Login</Text>
                     </TouchableOpacity>
                     <View style={styles.footerView}>
