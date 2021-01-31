@@ -8,37 +8,37 @@ import { firebase } from '../Config/Config'
 
 const Register = ({ navigation }) => {
 
+    onPress();
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
-    console.log(onPress())
-
-    // const onLoginPress = () => {
-    //     firebase
-    //         .auth()
-    //         .signInWithEmailAndPassword(email, password)
-    //         .then((response) => {
-    //             const uid = response.user.uid
-    //             const usersRef = firebase.firestore().collection('users')
-    //             usersRef
-    //                 .doc(uid)
-    //                 .get()
-    //                 .then(firestoreDocument => {
-    //                     if (!firestoreDocument.exists) {
-    //                         alert("User does not exist anymore.")
-    //                         return;
-    //                     }
-    //                     const user = firestoreDocument.data()
-    //                     navigation.navigate('Home', { user: user })
-    //                 })
-    //                 .catch(error => {
-    //                     alert(error)
-    //                 });
-    //         })
-    //         .catch(error => {
-    //             alert(error)
-    //         })
-    // }
+    const onLoginPress = () => {
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(email, password)
+            .then((response) => {
+                const uid = response.user.uid
+                const usersRef = firebase.firestore().collection('users')
+                usersRef
+                    .doc(uid)
+                    .get()
+                    .then(firestoreDocument => {
+                        if (!firestoreDocument.exists) {
+                            alert("User does not exist anymore.")
+                            return;
+                        }
+                        const user = firestoreDocument.data()
+                        navigation.navigate('Home', { user: user })
+                    })
+                    .catch(error => {
+                        alert(error)
+                    });
+            })
+            .catch(error => {
+                alert(error)
+            })
+    }
 
     return (
         <View style={styles.container}>
