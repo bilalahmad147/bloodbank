@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import onPress from './Location'
 import { firebase } from '../Config/Config'
 
 
@@ -9,6 +10,8 @@ const Register = ({ navigation }) => {
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    console.log(onPress())
 
     // const onLoginPress = () => {
     //     firebase
