@@ -2,8 +2,11 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ScrollView } from 'react-native';
+import onPress from './Location'
 
 const Welcome = ({ navigation }) => {
+
+        onPress();
 
     return (
         <View style={styles.container}>

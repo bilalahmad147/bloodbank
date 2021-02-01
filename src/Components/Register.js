@@ -2,7 +2,6 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, TextInput, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import onPress from './Location'
 import { firebase } from '../Config/Config'
 
 
@@ -13,7 +12,6 @@ const Register = ({ navigation }) => {
     const [password, setPassword] = useState('')
 
     const onLoginPress = () => {
-        onPress();
         firebase
             .auth()
             .signInWithEmailAndPassword(email, password)
