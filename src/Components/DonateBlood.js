@@ -19,7 +19,7 @@ const DonateBlood = ({ navigation }) => {
             alert("Under 18 or incorrect number")
             return
         }
-        
+
         const key = firebase.database().ref('users').push().key;
         const users = {
             id: key,
@@ -29,8 +29,42 @@ const DonateBlood = ({ navigation }) => {
             userCityName: cityName,
             userPhoneNum: phoneNum
         }
-        firebase.database().ref('users/' + key).set(users)
-        navigation.navigate('SubmitDetail')
+
+        switch (selectedValue) {
+            case 'O+':
+                firebase.database().ref('users/O+/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+                break;
+            case 'A+':
+                firebase.database().ref('users/A+/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+            case 'B+':
+                firebase.database().ref('users/B+/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+                break;
+            case 'AB+':
+                firebase.database().ref('users/AB+/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+                break;
+            case 'O-':
+                firebase.database().ref('users/O-/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+                break;
+            case 'A-':
+                firebase.database().ref('users/A-/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+                break;
+            case 'B-':
+                firebase.database().ref('users/B-/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+                break;
+            case 'AB-':
+                firebase.database().ref('users/AB-/' + key).set(users)
+                navigation.navigate('SubmitDetail')
+                break;
+            default:
+                console.log('default');
+        }
     }
 
     return (
