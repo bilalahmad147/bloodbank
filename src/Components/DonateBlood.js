@@ -38,6 +38,7 @@ const DonateBlood = ({ navigation }) => {
             case 'A+':
                 firebase.database().ref('users/A+/' + key).set(users)
                 navigation.navigate('SubmitDetail')
+                break;
             case 'B+':
                 firebase.database().ref('users/B+/' + key).set(users)
                 navigation.navigate('SubmitDetail')

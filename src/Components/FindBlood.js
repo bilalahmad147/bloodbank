@@ -11,18 +11,58 @@ const FindBlood = () => {
 
     const getUserData = () => {
 
-        function getDonorDetails(selectedValue) {
-            if (selectedValue === 'O+' || selectedValue === 'A+' || selectedValue === 'B+' || selectedValue === 'AB+' || selectedValue === 'O-' || selectedValue === 'A-' || selectedValue === 'B-' || selectedValue === 'AB-') {
-                return firebase.database().ref('users').once('value').then(snapshot => {
+        switch (selectedValue) {
+            case 'O+':
+                firebase.database().ref('users/O+').once('value').then(snapshot => {
                     const dataRef = Object.values(snapshot.val())
                     setUserData(dataRef)
                 });
-            }
-            return alert("Incorrect command")
+                break;
+            case 'A+':
+                firebase.database().ref('users/A+').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+                break;
+            case 'B+':
+                firebase.database().ref('users/B+').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+                break;
+            case 'AB+':
+                firebase.database().ref('users/AB+').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+                break;
+            case 'O-':
+                firebase.database().ref('users/O-').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+                break;
+            case 'A-':
+                firebase.database().ref('users/A-').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+                break;
+            case 'B-':
+                firebase.database().ref('users/B-').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+                break;
+            case 'AB-':
+                firebase.database().ref('users/AB-').once('value').then(snapshot => {
+                    const dataRef = Object.values(snapshot.val())
+                    setUserData(dataRef)
+                });
+                break;
+            default:
+                console.log('default');
         }
-
-        getDonorDetails(selectedValue)
-
     }
 
     return (
